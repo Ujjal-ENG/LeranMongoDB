@@ -16,6 +16,13 @@ const productsSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  description: {
+    type: String,
+    required: [
+      true,
+      "Please provide a Product description elaborately for better understanding to the buyer user",
+    ],
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -26,9 +33,29 @@ const productsSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Products", productsSchema);
 
-
 app.get("/", (req, res) => {
   res.send("WelCOme to the Home Page");
+});
+
+app.post("/products", async (req, res) => {
+  try {
+    //get data from request body
+    const { title, price, description } = req.body;
+
+    const newProduct = new Product({
+      title,
+      price,
+      description,
+    });
+
+    const productData = await newProduct.save();
+    res.status(201).send(productData);
+    
+  } catch (error) {
+    res.status(500).send({
+      message: error.message,
+    });
+  }
 });
 
 app.listen(process.env.PORT, async () => {
