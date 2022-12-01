@@ -1,0 +1,20 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "description": "start to learning the mongodb",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ujjal-ENG/LeranMongoDB.git"
+  },
+  "keywords": [],
+  "author": "Ujjal Kumar Roy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ujjal-ENG/LeranMongoDB/issues"
+  },
+  "homepage": "https://github.com/Ujjal-ENG/LeranMongoDB#readme"
+}
